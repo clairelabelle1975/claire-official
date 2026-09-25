@@ -55,7 +55,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-shade { background: linear-gradient(to top, rgba(9,9,11,.95) 0%, rgba(9,9,11,.18) 55%, rgba(9,9,11,.25) 100%); }
 .hero-content { position: relative; z-index: 2; width: min(930px, 100%); }
 .eyebrow, .section-kicker { font-size: 11px; letter-spacing: .22em; font-weight: 800; color: var(--accent-soft); }
-.hero h1 { margin: 8px 0 4px; font-size: clamp(68px, 16vw, 220px); line-height: .78; letter-spacing: -.075em; }
+.hero h1 { margin: 12px 0 8px; font-family: Didot, "Bodoni 72", "Bodoni MT", "Times New Roman", serif; font-size: clamp(56px, 10vw, 142px); font-weight: 400; line-height: .9; letter-spacing: .035em; text-transform: none; }
 .hero-copy { margin: 26px 0 32px; max-width: 520px; font-size: clamp(18px, 2.2vw, 28px); color: rgba(255,255,255,.82); }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .button {
@@ -146,7 +146,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .nav.is-open { display: flex; }
   .nav a { padding: 14px 12px; }
   .hero { padding: 120px 20px 72px; }
-  .hero h1 { font-size: clamp(70px, 26vw, 128px); }
+  .hero h1 { font-size: clamp(58px, 18vw, 96px); letter-spacing: .025em; }
   .hero-copy { max-width: 330px; }
   .scroll-cue { display: none; }
   .section { width: min(100% - 32px, var(--max)); padding: 88px 0; }
