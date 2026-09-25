@@ -43,7 +43,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
   display: flex; align-items: end; padding: clamp(110px, 16vw, 190px) clamp(20px, 6vw, 80px) 72px;
 }
 .hero-media, .hero-shade { position: absolute; inset: 0; }
-.hero-video { width: 100%; height: 100%; object-fit: cover; display: none; }
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 16%;
+  display: none;
+}
 .hero-video.is-ready { display: block; }
 .hero-fallback {
   width: 100%; height: 100%;
@@ -169,7 +175,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 /* V2 — Claire media integration */
 .hero-fallback.has-image {
   background-size: cover;
-  background-position: center 34%;
+  background-position: center 18%;
   transform: scale(1.01);
 }
 .gallery-grid .gallery-card:nth-child(4),
