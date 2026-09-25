@@ -47,7 +47,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 16%;
+  object-position: center 8%;
   display: none;
 }
 .hero-video.is-ready { display: block; }
