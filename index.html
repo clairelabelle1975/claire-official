@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
 
   <style>
     /* CLAIRE HERO V9 — full-page, centered, head + bust visible */
@@ -126,14 +126,25 @@
 
 
   <style>
-    /* V10 — force elegant serif font on all large section titles */
+    /* V11 — elegant serif + MUCH smaller section titles */
     .intro h2,
     .section-heading h2,
     .links-section h2,
     .exclusive h2 {
       font-family: "Cormorant Garamond", Georgia, serif !important;
       font-weight: 300 !important;
-      letter-spacing: -0.035em !important;
+      font-size: clamp(42px, 5vw, 72px) !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.03em !important;
+    }
+
+    @media (max-width: 760px) {
+      .intro h2,
+      .section-heading h2,
+      .links-section h2,
+      .exclusive h2 {
+        font-size: clamp(38px, 11vw, 52px) !important;
+      }
     }
   </style>
 
