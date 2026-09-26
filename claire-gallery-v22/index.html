@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f3ede4" />
+  <meta name="description" content="Claire — Official Website. Photos, videos and official links." />
+  <title>Claire — Official Website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=22" />
+
+  <style>
+    /* CLAIRE HERO V9 — full-page, centered, head + bust visible */
+    .hero-media {
+      position: absolute !important;
+      inset: 0 !important;
+      overflow: hidden !important;
+      background: #09090b !important;
+    }
+
+    .hero-bg-video {
+      position: absolute !important;
+      inset: -6% !important;
+      width: 112% !important;
+      height: 112% !important;
+      object-fit: cover !important;
+      object-position: 50% 18% !important;
+      filter: blur(28px) brightness(.46) saturate(.92) !important;
+      transform: scale(1.06) !important;
+      z-index: 0 !important;
+    }
+
+    .hero-fallback {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -1 !important;
+    }
+
+    @media (min-width: 761px) {
+      .hero-video,
+      .hero-video.is-ready {
+        display: block !important;
+        position: absolute !important;
+        left: 50% !important;
+        top: -19vh !important;
+
+        width: auto !important;
+        height: 228vh !important;
+
+        max-width: none !important;
+        max-height: none !important;
+
+        object-fit: contain !important;
+        object-position: center center !important;
+
+        transform: translateX(-50%) !important;
+        z-index: 2 !important;
+
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+        ) !important;
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+        ) !important;
+      }
+
+      .hero-shade {
+        z-index: 3 !important;
+        background:
+          linear-gradient(
+            to top,
+            rgba(9,9,11,.80) 0%,
+            rgba(9,9,11,.24) 34%,
+            rgba(9,9,11,.05) 66%,
+            rgba(9,9,11,.12) 100%
+          ) !important;
+      }
+
+      .hero-content,
+      .scroll-cue {
+        z-index: 4 !important;
+      }
+
+      .hero-content {
+        width: min(930px, 100%) !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero-bg-video {
+        display: none !important;
+      }
+
+      .hero-video,
+      .hero-video.is-ready {
+        display: block !important;
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: 50% 22% !important;
+        transform: none !important;
+        z-index: 2 !important;
+      }
+
+      .hero-shade {
+        z-index: 3 !important;
+      }
+
+      .hero-content {
+        z-index: 4 !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* V11 — elegant serif + MUCH smaller section titles */
+    .intro h2,
+    .section-heading h2,
+    .links-section h2,
+    .exclusive h2 {
+      font-family: "Cormorant Garamond", Georgia, serif !important;
+      font-weight: 300 !important;
+      font-size: clamp(42px, 5vw, 72px) !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.03em !important;
+    }
+
+    @media (max-width: 760px) {
+      .intro h2,
+      .section-heading h2,
+      .links-section h2,
+      .exclusive h2 {
+        font-size: clamp(38px, 11vw, 52px) !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* V12 — soft cream editorial palette */
+    :root {
+      --cream: #f3ede4;
+      --cream-2: #ece2d5;
+      --ink: #17130f;
+      --ink-soft: #6f675f;
+      --cream-line: rgba(23,19,15,.14);
+      --rose-muted: #b68f87;
+    }
+
+    html,
+    body {
+      background: var(--cream) !important;
+      color: var(--ink) !important;
+    }
+
+    body {
+      background-image:
+        radial-gradient(circle at 15% 22%, rgba(255,255,255,.65), transparent 24%),
+        linear-gradient(180deg, #f7f2eb 0%, var(--cream) 45%, #efe6da 100%) !important;
+    }
+
+    .noise {
+      opacity: .025 !important;
+      mix-blend-mode: multiply;
+    }
+
+    .site-header {
+      background: rgba(247,242,235,.88) !important;
+      border-bottom: 1px solid rgba(23,19,15,.08);
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+    }
+
+    .site-header .brand,
+    .site-header .nav,
+    .site-header .nav a,
+    .menu-toggle {
+      color: var(--ink) !important;
+    }
+
+    .hero {
+      color: #fff !important;
+      background: #09090b !important;
+    }
+
+    .hero .eyebrow,
+    .hero h1,
+    .hero-copy,
+    .hero .button-ghost,
+    .scroll-cue {
+      color: #fff !important;
+    }
+
+    .hero .button-primary {
+      background: #fff !important;
+      color: #111 !important;
+    }
+
+    .hero .button-ghost {
+      border-color: rgba(255,255,255,.34) !important;
+      background: rgba(0,0,0,.18) !important;
+    }
+
+    .section,
+    .intro,
+    .links-section,
+    .footer {
+      color: var(--ink) !important;
+      background: transparent !important;
+    }
+
+    .intro {
+      border-top-color: var(--cream-line) !important;
+    }
+
+    .intro h2,
+    .section-heading h2,
+    .links-section h2,
+    .exclusive h2,
+    .intro-copy,
+    .links-lead,
+    .social-card,
+    .footer,
+    .footer a,
+    .section-note {
+      color: var(--ink) !important;
+    }
+
+    .muted,
+    .section-note,
+    .links-lead,
+    .footer-meta {
+      color: var(--ink-soft) !important;
+    }
+
+    .section-kicker {
+      color: #7f5f58 !important;
+    }
+
+    .gallery-card,
+    .video-card {
+      background: #e7ddd0 !important;
+      box-shadow: 0 18px 50px rgba(70,55,40,.08);
+    }
+
+    .gallery-card {
+      border: 1px solid rgba(23,19,15,.12);
+    }
+
+    .social-list {
+      border-top-color: var(--cream-line) !important;
+    }
+
+    .social-card {
+      border-bottom-color: var(--cream-line) !important;
+    }
+
+    .social-card:hover {
+      color: #8b625b !important;
+    }
+
+    .exclusive {
+      background: linear-gradient(135deg, #efe4d6 0%, #ead9c8 58%, #e5d0c4 100%) !important;
+      color: var(--ink) !important;
+      border: 1px solid rgba(23,19,15,.10);
+      box-shadow: 0 28px 70px rgba(72,53,37,.08);
+    }
+
+    .exclusive .eyebrow,
+    .exclusive p:not(.eyebrow) {
+      color: var(--ink-soft) !important;
+    }
+
+    .button-light {
+      background: transparent !important;
+      color: var(--ink) !important;
+      border-color: rgba(23,19,15,.35) !important;
+    }
+
+    .button-light:hover {
+      background: var(--ink) !important;
+      color: #fff !important;
+    }
+
+    .footer {
+      border-top-color: var(--cream-line) !important;
+    }
+
+    .footer .brand {
+      color: var(--ink) !important;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        background: rgba(247,242,235,.97) !important;
+        border-color: rgba(23,19,15,.12) !important;
+      }
+
+      .nav a {
+        color: var(--ink) !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* V13 — FORCE cream palette everywhere outside the hero */
+    :root {
+      --cream-bg: #f6efe5;
+      --cream-bg-2: #efe4d7;
+      --cream-line: rgba(24, 20, 16, .14);
+      --ink: #17130f;
+      --ink-soft: #6e665f;
+    }
+
+    html,
+    body,
+    main {
+      background: var(--cream-bg) !important;
+      color: var(--ink) !important;
+    }
+
+    main > section:not(.hero),
+    .section,
+    .intro,
+    #about,
+    #gallery,
+    #videos,
+    #links,
+    .links-section,
+    .footer {
+      background: var(--cream-bg) !important;
+      color: var(--ink) !important;
+    }
+
+    .site-header {
+      background: rgba(246,239,229,.96) !important;
+      border-bottom: 1px solid var(--cream-line) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+    }
+
+    .site-header .brand,
+    .site-header .nav,
+    .site-header .nav a,
+    .site-header .menu-toggle {
+      color: var(--ink) !important;
+    }
+
+    .hero {
+      background: #09090b !important;
+      color: #fff !important;
+    }
+
+    .hero *,
+    .hero .eyebrow,
+    .hero h1,
+    .hero .hero-copy,
+    .hero .scroll-cue {
+      color: #fff !important;
+    }
+
+    .hero .button-primary {
+      background: #fff !important;
+      color: #111 !important;
+    }
+
+    .hero .button-ghost {
+      color: #fff !important;
+      background: rgba(0,0,0,.24) !important;
+      border-color: rgba(255,255,255,.34) !important;
+    }
+
+    .section-kicker {
+      color: #7b5c54 !important;
+    }
+
+    .intro h2,
+    .section-heading h2,
+    .links-section h2,
+    .exclusive h2,
+    .intro-copy,
+    .intro-copy p,
+    .links-lead,
+    .section-note,
+    .social-card,
+    .social-card span,
+    .footer,
+    .footer a,
+    .footer .brand {
+      color: var(--ink) !important;
+    }
+
+    .muted,
+    .section-note,
+    .links-lead,
+    .footer-meta {
+      color: var(--ink-soft) !important;
+    }
+
+    .intro {
+      border-top: 1px solid var(--cream-line) !important;
+    }
+
+    .social-list {
+      border-top: 1px solid var(--cream-line) !important;
+    }
+
+    .social-card {
+      border-bottom: 1px solid var(--cream-line) !important;
+    }
+
+    .gallery-card,
+    .video-card {
+      background: #e9ded0 !important;
+      border-color: rgba(24,20,16,.12) !important;
+    }
+
+    .exclusive {
+      background: var(--cream-bg-2) !important;
+      color: var(--ink) !important;
+      border: 1px solid var(--cream-line) !important;
+      box-shadow: none !important;
+    }
+
+    .exclusive .eyebrow,
+    .exclusive p:not(.eyebrow) {
+      color: var(--ink-soft) !important;
+    }
+
+    .button-light {
+      background: transparent !important;
+      color: var(--ink) !important;
+      border-color: rgba(24,20,16,.35) !important;
+    }
+
+    .button-light:hover {
+      background: var(--ink) !important;
+      color: #fff !important;
+    }
+
+    .footer {
+      border-top: 1px solid var(--cream-line) !important;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        background: rgba(246,239,229,.98) !important;
+        border-color: var(--cream-line) !important;
+      }
+
+      .nav a {
+        color: var(--ink) !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* V16 — 20-video gallery */
+    @media (min-width: 1000px) {
+      .video-grid { grid-template-columns: repeat(4, 1fr) !important; }
+    }
+    @media (max-width: 760px) {
+      .video-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .video-card:nth-child(3) { display: block !important; }
+    }
+  </style>
+
+
+  <style>
+    /* V19 — custom video controls: no native download/PiP/speed menu */
+    .video-card {
+      position: relative !important;
+    }
+
+    .video-card video {
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .video-custom-play,
+    .video-custom-sound,
+    .video-custom-expand {
+      position: absolute;
+      z-index: 8;
+      border: 1px solid rgba(255,255,255,.32);
+      background: rgba(0,0,0,.48);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: opacity .18s ease, transform .18s ease, background .18s ease;
+    }
+
+    .video-custom-play:hover,
+    .video-custom-sound:hover,
+    .video-custom-expand:hover {
+      background: rgba(0,0,0,.68);
+      transform: scale(1.04);
+    }
+
+    .video-custom-play {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .video-custom-play:hover {
+      transform: translate(-50%, -50%) scale(1.04);
+    }
+
+    .video-card.is-playing .video-custom-play {
+      opacity: 0;
+    }
+
+    .video-card:hover .video-custom-play,
+    .video-card:focus-within .video-custom-play {
+      opacity: 1;
+    }
+
+    .video-custom-sound,
+    .video-custom-expand {
+      top: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 15px;
+    }
+
+    .video-custom-sound {
+      left: 12px;
+    }
+
+    .video-custom-expand {
+      right: 12px;
+      font-size: 18px;
+    }
+
+    .video-label {
+      pointer-events: none;
+    }
+
+    .video-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(7,7,8,.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .video-viewer.is-open {
+      display: flex;
+    }
+
+    .video-viewer-stage {
+      position: relative;
+      height: min(92vh, 958px);
+      max-width: 92vw;
+      aspect-ratio: 540 / 958;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-viewer-video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #000;
+      box-shadow: 0 30px 100px rgba(0,0,0,.55);
+    }
+
+    .video-viewer-close,
+    .video-viewer-play,
+    .video-viewer-sound {
+      position: absolute;
+      z-index: 3;
+      border: 1px solid rgba(255,255,255,.34);
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .video-viewer-close {
+      top: 12px;
+      right: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 24px;
+    }
+
+    .video-viewer-sound {
+      top: 12px;
+      left: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 16px;
+    }
+
+    .video-viewer-play {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      font-size: 22px;
+      transition: opacity .18s ease;
+    }
+
+    .video-viewer.is-playing .video-viewer-play {
+      opacity: 0;
+    }
+
+    .video-viewer-stage:hover .video-viewer-play {
+      opacity: 1;
+    }
+
+    @media (max-width: 760px) {
+      .video-custom-play {
+        width: 50px;
+        height: 50px;
+      }
+
+      .video-custom-sound,
+      .video-custom-expand {
+        width: 34px;
+        height: 34px;
+        top: 8px;
+      }
+
+      .video-custom-sound { left: 8px; }
+      .video-custom-expand { right: 8px; }
+
+      .video-viewer {
+        padding: 8px;
+      }
+
+      .video-viewer-stage {
+        height: auto;
+        width: min(96vw, 540px);
+        max-height: 96vh;
+      }
+
+      .video-viewer-video {
+        width: 100%;
+        height: auto;
+        max-height: 96vh;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* V21 — 29 original clips, no upscaling/cropping in large viewer */
+    .video-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+    }
+
+    .video-card:nth-child(3) {
+      display: block !important;
+    }
+
+    .video-viewer-stage {
+      height: min(82vh, 1080px) !important;
+      width: auto !important;
+      max-width: 92vw !important;
+      aspect-ratio: 9 / 16 !important;
+    }
+
+    .video-viewer-video {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 720px !important;
+      max-height: 1080px !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #000 !important;
+    }
+
+    @media (max-width: 1050px) {
+      .video-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+      }
+
+      .video-card:nth-child(3) {
+        display: block !important;
+      }
+
+      .video-viewer-stage {
+        width: min(94vw, 607px) !important;
+        height: auto !important;
+        max-height: 92vh !important;
+      }
+
+      .video-viewer-video {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 92vh !important;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <!-- CLAIRE SITE V22: 29 ORIGINAL CLIPS — CUSTOM PLAYER -->
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Claire home">CLAIRE</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">MENU</button>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#links">Links</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-bg-video" src="assets/videos/clip-01.mp4" autoplay muted playsinline loop preload="metadata"></video>
+        <video id="heroVideo" class="hero-video" muted playsinline loop preload="metadata"></video>
+        <div class="hero-fallback"></div>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">OFFICIAL WEBSITE</p>
+        <h1 id="hero-title">Claire</h1>
+        <p class="hero-copy">Claire. Photos, videos & official links.</p>
+        <div class="hero-actions">
+          <!-- V15: flame EXCLUSIVE button -->
+          <a class="button button-primary" href="#gallery">Explore</a>
+          <a class="button button-ghost" data-social="fanvue" href="#links">🔥EXCLUSIVE🔥</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about">SCROLL ↓</a>
+    </section>
+
+    <section class="section intro" id="about">
+      <div class="section-kicker">01 / ABOUT</div>
+      <div class="intro-grid">
+        <h2>Meet<br />Claire.</h2>
+        <div class="intro-copy">
+          <p>The official home of Claire — selected photos, videos and verified links in one place.</p>
+          <p class="muted">No repost pages. No fake profiles. Just Claire.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">02 / GALLERY</div>
+          <h2>Selected photos</h2>
+        </div>
+        <span class="section-note">Tap any photo to open</span>
+      </div>
+      <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="section-heading">
+        <div>
+          <div class="section-kicker">03 / VIDEOS</div>
+          <h2>In motion</h2>
+        </div>
+        <span class="section-note">Sound stays off until you choose</span>
+      </div>
+      <div class="video-grid" id="videoGrid"></div>
+    </section>
+
+    <section class="section links-section" id="links">
+      <div class="section-kicker">04 / OFFICIAL LINKS</div>
+      <h2>Find Claire.</h2>
+      <p class="links-lead">Claire’s verified destinations. If it is not linked here, it is not official.</p>
+      <div class="social-list">
+        <a class="social-card" data-social="instagram" href="#" target="_blank" rel="noopener">
+          <span>Instagram</span><strong>↗</strong>
+        </a>
+        <a class="social-card" data-social="x" href="#" target="_blank" rel="noopener">
+          <span>X / Twitter</span><strong>↗</strong>
+        </a>
+        <a class="social-card" data-social="fanvue" href="#" target="_blank" rel="noopener">
+          <span>Fanvue</span><strong>↗</strong>
+        </a>
+        
+      </div>
+    </section>
+
+    <section class="exclusive" aria-label="Exclusive content">
+      <div>
+        <p class="eyebrow">A LITTLE CLOSER</p>
+        <h2>More Claire.</h2>
+        <p>For exclusive posts and extras, use Claire’s official Fanvue link.</p>
+      </div>
+      <a class="button button-light" data-social="fanvue" href="#" target="_blank" rel="noopener">See exclusive ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#top">CLAIRE</a>
+    <div class="footer-meta">
+      <span>© <span id="year"></span> Claire</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close image">×</button>
+    <img id="lightboxImage" alt="Claire gallery image" />
+  </dialog>
+
+  <script>
+/* V17 INLINE CONFIG — 20 showcase videos, hero unchanged */
+window.CLAIRE_SITE = {
+  socials: {
+    instagram: "https://www.instagram.com/claire_velvetmuse/",
+    x: "https://x.com/claireVelvetX",
+    fanvue: "https://www.fanvue.com/clairevogue",},
+  heroVideo: "assets/videos/clip-01.mp4",
+  heroPoster: "claire-gallery/claire-photo-01.jpg",
+  gallery: [
+    "claire-gallery/claire-photo-01.jpg",
+    "claire-gallery/claire-photo-02.jpg",
+    "claire-gallery/claire-photo-03.jpg",
+    "claire-gallery/claire-photo-04.jpg",
+    "claire-gallery/claire-photo-05.jpg",
+    "claire-gallery/claire-photo-06.jpg",
+    "claire-gallery/claire-photo-07.jpg",
+    "claire-gallery/claire-photo-08.jpg",
+    "claire-gallery/claire-photo-09.jpg",
+    "claire-gallery/claire-photo-10.jpg",
+    "claire-gallery/claire-photo-11.jpg",
+    "claire-gallery/claire-photo-12.jpg",
+    "claire-gallery/claire-photo-13.jpg",
+    "claire-gallery/claire-photo-14.jpg",
+    "claire-gallery/claire-photo-15.jpg",
+    "claire-gallery/claire-photo-16.jpg",
+    "claire-gallery/claire-photo-17.png",
+    "claire-gallery/claire-photo-18.jpg",
+    "claire-gallery/claire-photo-19.jpg",
+    "claire-gallery/claire-photo-20.jpg",
+    "claire-gallery/claire-photo-21.jpg",
+    "claire-gallery/claire-photo-22.jpg",
+    "claire-gallery/claire-photo-23.jpg",
+    "claire-gallery/claire-photo-24.jpg",
+    "claire-gallery/claire-photo-25.png",
+    "claire-gallery/claire-photo-26.jpg",
+    "claire-gallery/claire-photo-27.jpg",
+    "claire-gallery/claire-photo-28.png",
+    "claire-gallery/claire-photo-29.jpg",
+    "claire-gallery/claire-photo-30.jpg",
+    "claire-gallery/claire-photo-31.jpg",
+    "claire-gallery/claire-photo-32.jpg",
+    "claire-gallery/claire-photo-33.jpg",
+    "claire-gallery/claire-photo-34.jpg",
+    "claire-gallery/claire-photo-35.jpg",
+    "claire-gallery/claire-photo-36.jpg",
+    "claire-gallery/claire-photo-37.jpg",
+    "claire-gallery/claire-photo-38.jpg",
+    "claire-gallery/claire-photo-39.jpg",
+    "claire-gallery/claire-photo-40.jpg",
+    "claire-gallery/claire-photo-41.jpg",
+    "claire-gallery/claire-photo-42.jpg",
+    "claire-gallery/claire-photo-43.jpg",
+    "claire-gallery/claire-photo-44.jpg",
+    "claire-gallery/claire-photo-45.jpg",
+  ],
+  videos: [
+    { src: "claire-media-a/videos/claire-01.mp4", poster: "claire-media-a/posters/claire-01.jpg", label: "CLAIRE / 01" },
+    { src: "claire-media-a/videos/claire-02.mp4", poster: "claire-media-a/posters/claire-02.jpg", label: "CLAIRE / 02" },
+    { src: "claire-media-a/videos/claire-03.mp4", poster: "claire-media-a/posters/claire-03.jpg", label: "CLAIRE / 03" },
+    { src: "claire-media-a/videos/claire-04.mp4", poster: "claire-media-a/posters/claire-04.jpg", label: "CLAIRE / 04" },
+    { src: "claire-media-a/videos/claire-05.mp4", poster: "claire-media-a/posters/claire-05.jpg", label: "CLAIRE / 05" },
+    { src: "claire-media-a/videos/claire-06.mp4", poster: "claire-media-a/posters/claire-06.jpg", label: "CLAIRE / 06" },
+    { src: "claire-media-b/videos/claire-07.mp4", poster: "claire-media-b/posters/claire-07.jpg", label: "CLAIRE / 07" },
+    { src: "claire-media-b/videos/claire-08.mp4", poster: "claire-media-b/posters/claire-08.jpg", label: "CLAIRE / 08" },
+    { src: "claire-media-b/videos/claire-09.mp4", poster: "claire-media-b/posters/claire-09.jpg", label: "CLAIRE / 09" },
+    { src: "claire-media-b/videos/claire-10.mp4", poster: "claire-media-b/posters/claire-10.jpg", label: "CLAIRE / 10" },
+    { src: "claire-media-b/videos/claire-11.mp4", poster: "claire-media-b/posters/claire-11.jpg", label: "CLAIRE / 11" },
+    { src: "claire-media-b/videos/claire-12.mp4", poster: "claire-media-b/posters/claire-12.jpg", label: "CLAIRE / 12" },
+    { src: "claire-media-c/videos/claire-13.mp4", poster: "claire-media-c/posters/claire-13.jpg", label: "CLAIRE / 13" },
+    { src: "claire-media-c/videos/claire-14.mp4", poster: "claire-media-c/posters/claire-14.jpg", label: "CLAIRE / 14" },
+    { src: "claire-media-c/videos/claire-15.mp4", poster: "claire-media-c/posters/claire-15.jpg", label: "CLAIRE / 15" },
+    { src: "claire-media-c/videos/claire-16.mp4", poster: "claire-media-c/posters/claire-16.jpg", label: "CLAIRE / 16" },
+    { src: "claire-media-c/videos/claire-17.mp4", poster: "claire-media-c/posters/claire-17.jpg", label: "CLAIRE / 17" },
+    { src: "claire-media-c/videos/claire-18.mp4", poster: "claire-media-c/posters/claire-18.jpg", label: "CLAIRE / 18" },
+    { src: "claire-media-d/videos/claire-19.mp4", poster: "claire-media-d/posters/claire-19.jpg", label: "CLAIRE / 19" },
+    { src: "claire-media-d/videos/claire-20.mp4", poster: "claire-media-d/posters/claire-20.jpg", label: "CLAIRE / 20" },
+    { src: "claire-media-d/videos/claire-21.mp4", poster: "claire-media-d/posters/claire-21.jpg", label: "CLAIRE / 21" },
+    { src: "claire-media-d/videos/claire-22.mp4", poster: "claire-media-d/posters/claire-22.jpg", label: "CLAIRE / 22" },
+    { src: "claire-media-d/videos/claire-23.mp4", poster: "claire-media-d/posters/claire-23.jpg", label: "CLAIRE / 23" },
+    { src: "claire-media-d/videos/claire-24.mp4", poster: "claire-media-d/posters/claire-24.jpg", label: "CLAIRE / 24" },
+    { src: "claire-media-e/videos/claire-25.mp4", poster: "claire-media-e/posters/claire-25.jpg", label: "CLAIRE / 25" },
+    { src: "claire-media-e/videos/claire-26.mp4", poster: "claire-media-e/posters/claire-26.jpg", label: "CLAIRE / 26" },
+    { src: "claire-media-e/videos/claire-27.mp4", poster: "claire-media-e/posters/claire-27.jpg", label: "CLAIRE / 27" },
+    { src: "claire-media-e/videos/claire-28.mp4", poster: "claire-media-e/posters/claire-28.jpg", label: "CLAIRE / 28" },
+    { src: "claire-media-e/videos/claire-29.mp4", poster: "claire-media-e/posters/claire-29.jpg", label: "CLAIRE / 29" }
+  ]
+};
+
+  </script>
+
+  <script>
+/* V17 INLINE APP */
+(() => {
+  const config = window.CLAIRE_SITE || {};
+  const socials = config.socials || {};
+
+  document.querySelectorAll('[data-social]').forEach((el) => {
+    const key = el.dataset.social;
+    const url = socials[key];
+    if (url && url !== '#') {
+      el.href = url;
+    } else {
+      if (el.classList.contains('social-card')) {
+        el.classList.add('is-disabled');
+        el.setAttribute('aria-disabled', 'true');
+        el.removeAttribute('target');
+      }
+      if (el.classList.contains('button')) {
+        el.href = '#links';
+      }
+    }
+  });
+
+  const heroVideo = document.getElementById('heroVideo');
+  const heroFallback = document.querySelector('.hero-fallback');
+  if (heroFallback && config.heroPoster) {
+    heroFallback.style.backgroundImage = `linear-gradient(to top, rgba(9,9,11,.18), rgba(9,9,11,.06)), url("${config.heroPoster}")`;
+    heroFallback.classList.add('has-image');
+  }
+  if (heroVideo && config.heroVideo) {
+    heroVideo.src = config.heroVideo;
+    if (config.heroPoster) heroVideo.poster = config.heroPoster;
+    heroVideo.addEventListener('canplay', () => {
+      heroVideo.classList.add('is-ready');
+      heroVideo.play().catch(() => {});
+    }, { once: true });
+  }
+
+  const galleryGrid = document.getElementById('galleryGrid');
+  const gallery = Array.isArray(config.gallery) ? config.gallery.filter(Boolean) : [];
+  const galleryItems = gallery.length ? gallery : ['', '', '', '', '', ''];
+
+  galleryItems.forEach((path, i) => {
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.className = 'gallery-card';
+    card.setAttribute('aria-label', `Open Claire photo ${i + 1}`);
+
+    if (path) {
+      const img = document.createElement('img');
+      img.src = path;
+      img.alt = `Claire photo ${i + 1}`;
+      img.loading = i < 2 ? 'eager' : 'lazy';
+      img.decoding = 'async';
+      card.appendChild(img);
+      card.addEventListener('click', () => openLightbox(path));
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'ph';
+      ph.textContent = `CLAIRE / PHOTO ${String(i + 1).padStart(2, '0')}`;
+      card.appendChild(ph);
+    }
+    galleryGrid.appendChild(card);
+  });
+
+
+  // V19 custom large video viewer: preserves vertical aspect ratio and avoids native browser menus.
+  const videoViewer = document.createElement('div');
+  videoViewer.className = 'video-viewer';
+  videoViewer.setAttribute('aria-hidden', 'true');
+  videoViewer.innerHTML = `
+    <div class="video-viewer-stage">
+      <video class="video-viewer-video" playsinline preload="metadata"></video>
+      <button class="video-viewer-sound" type="button" aria-label="Toggle sound">🔇</button>
+      <button class="video-viewer-play" type="button" aria-label="Play or pause">▶</button>
+      <button class="video-viewer-close" type="button" aria-label="Close">×</button>
+    </div>
+  `;
+  document.body.appendChild(videoViewer);
+
+  const viewerVideo = videoViewer.querySelector('.video-viewer-video');
+  const viewerPlay = videoViewer.querySelector('.video-viewer-play');
+  const viewerSound = videoViewer.querySelector('.video-viewer-sound');
+  const viewerClose = videoViewer.querySelector('.video-viewer-close');
+
+  viewerVideo.controls = false;
+  viewerVideo.disablePictureInPicture = true;
+  viewerVideo.setAttribute('controlsList', 'nodownload noplaybackrate noremoteplayback');
+  viewerVideo.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  const updateViewerState = () => {
+    const playing = !viewerVideo.paused && !viewerVideo.ended;
+    videoViewer.classList.toggle('is-playing', playing);
+    viewerPlay.textContent = playing ? '❚❚' : '▶';
+    viewerSound.textContent = viewerVideo.muted ? '🔇' : '🔊';
+  };
+
+  const openVideoViewer = (video) => {
+    viewerVideo.src = video.currentSrc || video.src;
+    viewerVideo.poster = video.poster || '';
+    viewerVideo.currentTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;
+    viewerVideo.muted = video.muted;
+    video.pause();
+    videoViewer.classList.add('is-open');
+    videoViewer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    viewerVideo.play().catch(() => {});
+    updateViewerState();
+  };
+
+  const closeVideoViewer = () => {
+    viewerVideo.pause();
+    videoViewer.classList.remove('is-open', 'is-playing');
+    videoViewer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    viewerVideo.removeAttribute('src');
+    viewerVideo.load();
+  };
+
+  viewerVideo.addEventListener('play', updateViewerState);
+  viewerVideo.addEventListener('pause', updateViewerState);
+  viewerVideo.addEventListener('volumechange', updateViewerState);
+  viewerVideo.addEventListener('click', () => {
+    if (viewerVideo.paused) viewerVideo.play().catch(() => {});
+    else viewerVideo.pause();
+  });
+
+  viewerPlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (viewerVideo.paused) viewerVideo.play().catch(() => {});
+    else viewerVideo.pause();
+  });
+
+  viewerSound.addEventListener('click', (e) => {
+    e.stopPropagation();
+    viewerVideo.muted = !viewerVideo.muted;
+  });
+
+  viewerClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeVideoViewer();
+  });
+
+  videoViewer.addEventListener('click', (e) => {
+    if (e.target === videoViewer) closeVideoViewer();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoViewer.classList.contains('is-open')) closeVideoViewer();
+  });
+
+  const videoGrid = document.getElementById('videoGrid');
+  const videos = Array.isArray(config.videos) ? config.videos : [];
+  const videoItems = videos.length ? videos : ['', '', ''];
+
+  videoItems.forEach((item, i) => {
+    const data = typeof item === 'string' ? { src: item } : (item || {});
+    const card = document.createElement('article');
+    card.className = 'video-card';
+
+    if (data.src) {
+      const video = document.createElement('video');
+      video.src = data.src;
+      if (data.poster) video.poster = data.poster;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = 'none';
+      video.controls = false;
+      video.disablePictureInPicture = true;
+      video.setAttribute('controlsList', 'nodownload noplaybackrate noremoteplayback');
+      video.addEventListener('contextmenu', (e) => e.preventDefault());
+      card.appendChild(video);
+
+      const playButton = document.createElement('button');
+      playButton.type = 'button';
+      playButton.className = 'video-custom-play';
+      playButton.setAttribute('aria-label', 'Play or pause');
+      playButton.textContent = '▶';
+
+      const soundButton = document.createElement('button');
+      soundButton.type = 'button';
+      soundButton.className = 'video-custom-sound';
+      soundButton.setAttribute('aria-label', 'Toggle sound');
+      soundButton.textContent = '🔇';
+
+      const expandButton = document.createElement('button');
+      expandButton.type = 'button';
+      expandButton.className = 'video-custom-expand';
+      expandButton.setAttribute('aria-label', 'Open video');
+      expandButton.textContent = '⛶';
+
+      const updateCardState = () => {
+        const playing = !video.paused && !video.ended;
+        card.classList.toggle('is-playing', playing);
+        playButton.textContent = playing ? '❚❚' : '▶';
+        soundButton.textContent = video.muted ? '🔇' : '🔊';
+      };
+
+      video.addEventListener('play', updateCardState);
+      video.addEventListener('pause', updateCardState);
+      video.addEventListener('volumechange', updateCardState);
+
+      video.addEventListener('click', () => {
+        if (video.paused) video.play().catch(() => {});
+        else video.pause();
+      });
+
+      playButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) video.play().catch(() => {});
+        else video.pause();
+      });
+
+      soundButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
+      });
+
+      expandButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openVideoViewer(video);
+      });
+
+      card.appendChild(playButton);
+      card.appendChild(soundButton);
+      card.appendChild(expandButton);
+    } else {
+      const ph = document.createElement('div');
+      ph.className = 'video-placeholder';
+      ph.innerHTML = '<span>▶</span>';
+      card.appendChild(ph);
+    }
+
+    const label = document.createElement('div');
+    label.className = 'video-label';
+    label.textContent = data.label || `VIDEO ${String(i + 1).padStart(2, '0')}`;
+    card.appendChild(label);
+    videoGrid.appendChild(card);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const close = document.querySelector('.lightbox-close');
+
+  function openLightbox(src) {
+    if (!lightbox || !lightboxImage) return;
+    lightboxImage.src = src;
+    lightbox.showModal();
+  }
+
+  close?.addEventListener('click', () => lightbox.close());
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('is-open')));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+
+  </script>
+</body>
+</html>
