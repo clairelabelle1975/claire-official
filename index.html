@@ -6,14 +6,13 @@
   <meta name="theme-color" content="#09090b" />
   <meta name="description" content="Claire — Official Website. Photos, videos and official links." />
   <title>Claire — Official Website</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css?v=9" />
 
   <style>
+    /* CLAIRE HERO V9 — full-page, centered, head + bust visible */
     .hero-media {
       position: absolute !important;
       inset: 0 !important;
@@ -44,7 +43,6 @@
       .hero-video.is-ready {
         display: block !important;
         position: absolute !important;
-
         left: 50% !important;
         top: -19vh !important;
 
@@ -58,31 +56,26 @@
         object-position: center center !important;
 
         transform: translateX(-50%) !important;
-
         z-index: 2 !important;
 
-        -webkit-mask-image:
-          linear-gradient(
-            to right,
-            transparent 0%,
-            black 8%,
-            black 92%,
-            transparent 100%
-          ) !important;
-
-        mask-image:
-          linear-gradient(
-            to right,
-            transparent 0%,
-            black 8%,
-            black 92%,
-            transparent 100%
-          ) !important;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+        ) !important;
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          black 8%,
+          black 92%,
+          transparent 100%
+        ) !important;
       }
 
       .hero-shade {
         z-index: 3 !important;
-
         background:
           linear-gradient(
             to top,
@@ -111,18 +104,13 @@
       .hero-video,
       .hero-video.is-ready {
         display: block !important;
-
         position: absolute !important;
         inset: 0 !important;
-
         width: 100% !important;
         height: 100% !important;
-
         object-fit: cover !important;
         object-position: 50% 22% !important;
-
         transform: none !important;
-
         z-index: 2 !important;
       }
 
@@ -135,365 +123,120 @@
       }
     }
   </style>
+
 </head>
-
 <body>
-
   <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
-
-    <a class="brand" href="#top" aria-label="Claire home">
-      CLAIRE
-    </a>
-
-    <button
-      class="menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false">
-      MENU
-    </button>
-
+    <a class="brand" href="#top" aria-label="Claire home">CLAIRE</a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">MENU</button>
     <nav class="nav" aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#gallery">Gallery</a>
       <a href="#videos">Videos</a>
       <a href="#links">Links</a>
     </nav>
-
   </header>
 
   <main>
-
     <section class="hero" aria-labelledby="hero-title">
-
       <div class="hero-media" aria-hidden="true">
-
-        <video
-          class="hero-bg-video"
-          src="assets/videos/clip-01.mp4"
-          autoplay
-          muted
-          playsinline
-          loop
-          preload="metadata">
-        </video>
-
-        <video
-          id="heroVideo"
-          class="hero-video"
-          muted
-          playsinline
-          loop
-          preload="metadata">
-        </video>
-
+        <video class="hero-bg-video" src="assets/videos/clip-01.mp4" autoplay muted playsinline loop preload="metadata"></video>
+        <video id="heroVideo" class="hero-video" muted playsinline loop preload="metadata"></video>
         <div class="hero-fallback"></div>
-
       </div>
-
       <div class="hero-shade"></div>
-
       <div class="hero-content">
-
-        <p class="eyebrow">
-          OFFICIAL WEBSITE
-        </p>
-
-        <h1 id="hero-title">
-          Claire
-        </h1>
-
-        <p class="hero-copy">
-          Claire. Photos, videos & official links.
-        </p>
-
+        <p class="eyebrow">OFFICIAL WEBSITE</p>
+        <h1 id="hero-title">Claire</h1>
+        <p class="hero-copy">Claire. Photos, videos & official links.</p>
         <div class="hero-actions">
-
-          <a
-            class="button button-primary"
-            href="#gallery">
-            Explore
-          </a>
-
-          <a
-            class="button button-ghost"
-            data-social="fanvue"
-            href="#links">
-            Exclusive
-          </a>
-
+          <a class="button button-primary" href="#gallery">Explore</a>
+          <a class="button button-ghost" data-social="fanvue" href="#links">Exclusive</a>
         </div>
-
       </div>
-
-      <a
-        class="scroll-cue"
-        href="#about"
-        aria-label="Scroll to about">
-        SCROLL ↓
-      </a>
-
+      <a class="scroll-cue" href="#about" aria-label="Scroll to about">SCROLL ↓</a>
     </section>
 
     <section class="section intro" id="about">
-
-      <div class="section-kicker">
-        01 / ABOUT
-      </div>
-
+      <div class="section-kicker">01 / ABOUT</div>
       <div class="intro-grid">
-
-        <h2>
-          Meet<br>
-          Claire.
-        </h2>
-
+        <h2>Meet<br />Claire.</h2>
         <div class="intro-copy">
-
-          <p>
-            The official home of Claire — selected photos,
-            videos and verified links in one place.
-          </p>
-
-          <p class="muted">
-            No repost pages. No fake profiles. Just Claire.
-          </p>
-
+          <p>The official home of Claire — selected photos, videos and verified links in one place.</p>
+          <p class="muted">No repost pages. No fake profiles. Just Claire.</p>
         </div>
-
       </div>
-
     </section>
 
     <section class="section" id="gallery">
-
       <div class="section-heading">
-
         <div>
-
-          <div class="section-kicker">
-            02 / GALLERY
-          </div>
-
-          <h2>
-            Selected photos
-          </h2>
-
+          <div class="section-kicker">02 / GALLERY</div>
+          <h2>Selected photos</h2>
         </div>
-
-        <span class="section-note">
-          Tap any photo to open
-        </span>
-
+        <span class="section-note">Tap any photo to open</span>
       </div>
-
-      <div
-        class="gallery-grid"
-        id="galleryGrid"
-        aria-live="polite">
-      </div>
-
+      <div class="gallery-grid" id="galleryGrid" aria-live="polite"></div>
     </section>
 
     <section class="section" id="videos">
-
       <div class="section-heading">
-
         <div>
-
-          <div class="section-kicker">
-            03 / VIDEOS
-          </div>
-
-          <h2>
-            In motion
-          </h2>
-
+          <div class="section-kicker">03 / VIDEOS</div>
+          <h2>In motion</h2>
         </div>
-
-        <span class="section-note">
-          Sound stays off until you choose
-        </span>
-
+        <span class="section-note">Sound stays off until you choose</span>
       </div>
-
-      <div
-        class="video-grid"
-        id="videoGrid">
-      </div>
-
+      <div class="video-grid" id="videoGrid"></div>
     </section>
 
-    <section
-      class="section links-section"
-      id="links">
-
-      <div class="section-kicker">
-        04 / OFFICIAL LINKS
-      </div>
-
-      <h2>
-        Find Claire.
-      </h2>
-
-      <p class="links-lead">
-        Claire’s verified destinations.
-        If it is not linked here, it is not official.
-      </p>
-
+    <section class="section links-section" id="links">
+      <div class="section-kicker">04 / OFFICIAL LINKS</div>
+      <h2>Find Claire.</h2>
+      <p class="links-lead">Claire’s verified destinations. If it is not linked here, it is not official.</p>
       <div class="social-list">
-
-        <a
-          class="social-card"
-          data-social="instagram"
-          href="#"
-          target="_blank"
-          rel="noopener">
-
-          <span>
-            Instagram
-          </span>
-
-          <strong>
-            ↗
-          </strong>
-
+        <a class="social-card" data-social="instagram" href="#" target="_blank" rel="noopener">
+          <span>Instagram</span><strong>↗</strong>
         </a>
-
-        <a
-          class="social-card"
-          data-social="x"
-          href="#"
-          target="_blank"
-          rel="noopener">
-
-          <span>
-            X / Twitter
-          </span>
-
-          <strong>
-            ↗
-          </strong>
-
+        <a class="social-card" data-social="x" href="#" target="_blank" rel="noopener">
+          <span>X / Twitter</span><strong>↗</strong>
         </a>
-
-        <a
-          class="social-card"
-          data-social="fanvue"
-          href="#"
-          target="_blank"
-          rel="noopener">
-
-          <span>
-            Fanvue
-          </span>
-
-          <strong>
-            ↗
-          </strong>
-
+        <a class="social-card" data-social="fanvue" href="#" target="_blank" rel="noopener">
+          <span>Fanvue</span><strong>↗</strong>
         </a>
-
-        <a
-          class="social-card"
-          data-social="tiktok"
-          href="#"
-          target="_blank"
-          rel="noopener">
-
-          <span>
-            TikTok
-          </span>
-
-          <strong>
-            ↗
-          </strong>
-
+        <a class="social-card" data-social="tiktok" href="#" target="_blank" rel="noopener">
+          <span>TikTok</span><strong>↗</strong>
         </a>
-
       </div>
-
     </section>
 
-    <section
-      class="exclusive"
-      aria-label="Exclusive content">
-
+    <section class="exclusive" aria-label="Exclusive content">
       <div>
-
-        <p class="eyebrow">
-          A LITTLE CLOSER
-        </p>
-
-        <h2>
-          More Claire.
-        </h2>
-
-        <p>
-          For exclusive posts and extras,
-          use Claire’s official Fanvue link.
-        </p>
-
+        <p class="eyebrow">A LITTLE CLOSER</p>
+        <h2>More Claire.</h2>
+        <p>For exclusive posts and extras, use Claire’s official Fanvue link.</p>
       </div>
-
-      <a
-        class="button button-light"
-        data-social="fanvue"
-        href="#"
-        target="_blank"
-        rel="noopener">
-        See exclusive ↗
-      </a>
-
+      <a class="button button-light" data-social="fanvue" href="#" target="_blank" rel="noopener">See exclusive ↗</a>
     </section>
-
   </main>
 
   <footer class="footer">
-
-    <a
-      class="brand"
-      href="#top">
-      CLAIRE
-    </a>
-
+    <a class="brand" href="#top">CLAIRE</a>
     <div class="footer-meta">
-
-      <span>
-        © <span id="year"></span> Claire
-      </span>
-
-      <a href="privacy.html">
-        Privacy
-      </a>
-
-      <a href="terms.html">
-        Terms
-      </a>
-
+      <span>© <span id="year"></span> Claire</span>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </div>
-
   </footer>
 
-  <dialog
-    class="lightbox"
-    id="lightbox">
-
-    <button
-      class="lightbox-close"
-      aria-label="Close image">
-      ×
-    </button>
-
-    <img
-      id="lightboxImage"
-      alt="Claire gallery image">
-
+  <dialog class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close image">×</button>
+    <img id="lightboxImage" alt="Claire gallery image" />
   </dialog>
 
   <script src="config.js"></script>
   <script src="app.js"></script>
-
 </body>
 </html>
