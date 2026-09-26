@@ -743,7 +743,7 @@
 
 </head>
 <body>
-  <!-- CLAIRE V23: gallery path fixed for claire-gallery-v22/claire-gallery -->
+  <!-- CLAIRE V24: mobile hero video autoplay + correct poster -->
   <!-- CLAIRE SITE V22: 29 ORIGINAL CLIPS — CUSTOM PLAYER -->
   <div class="noise" aria-hidden="true"></div>
 
@@ -761,8 +761,8 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-media" aria-hidden="true">
-        <video class="hero-bg-video" src="assets/videos/clip-01.mp4" autoplay muted playsinline loop preload="metadata"></video>
-        <video id="heroVideo" class="hero-video" muted playsinline loop preload="metadata"></video>
+        <video class="hero-bg-video" src="assets/videos/clip-01.mp4" autoplay muted playsinline loop preload="auto" poster="assets/posters/clip-01.jpg"></video>
+        <video id="heroVideo" class="hero-video" autoplay muted playsinline loop preload="auto" poster="assets/posters/clip-01.jpg"></video>
         <div class="hero-fallback"></div>
       </div>
       <div class="hero-shade"></div>
@@ -862,7 +862,7 @@ window.CLAIRE_SITE = {
     x: "https://x.com/claireVelvetX",
     fanvue: "https://www.fanvue.com/clairevogue",},
   heroVideo: "assets/videos/clip-01.mp4",
-  heroPoster: "claire-gallery-v22/claire-gallery/claire-photo-01.jpg",
+  heroPoster: "assets/posters/clip-01.jpg",
   gallery: [
     "claire-gallery-v22/claire-gallery/claire-photo-01.jpg",
     "claire-gallery-v22/claire-gallery/claire-photo-02.jpg",
@@ -1213,5 +1213,32 @@ window.CLAIRE_SITE = {
 })();
 
   </script>
+
+  <script>
+  (() => {
+    const tryStartHero = () => {
+      const hero = document.getElementById('heroVideo');
+      const bg = document.querySelector('.hero-bg-video');
+      [hero, bg].forEach((video) => {
+        if (!video) return;
+        video.muted = true;
+        video.playsInline = true;
+        const p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', tryStartHero, { once: true });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) tryStartHero();
+    });
+
+    window.addEventListener('pageshow', tryStartHero);
+    ['touchstart','pointerdown'].forEach((eventName) => {
+      document.addEventListener(eventName, tryStartHero, { once: true, passive: true });
+    });
+  })();
+  </script>
+
 </body>
 </html>
