@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=19" />
+  <link rel="stylesheet" href="styles.css?v=21" />
 
   <style>
     /* CLAIRE HERO V9 — full-page, centered, head + bust visible */
@@ -682,9 +682,68 @@
     }
   </style>
 
+
+  <style>
+    /* V21 — 29 original clips, no upscaling/cropping in large viewer */
+    .video-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+    }
+
+    .video-card:nth-child(3) {
+      display: block !important;
+    }
+
+    .video-viewer-stage {
+      height: min(82vh, 1080px) !important;
+      width: auto !important;
+      max-width: 92vw !important;
+      aspect-ratio: 9 / 16 !important;
+    }
+
+    .video-viewer-video {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: 720px !important;
+      max-height: 1080px !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #000 !important;
+    }
+
+    @media (max-width: 1050px) {
+      .video-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .video-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+      }
+
+      .video-card:nth-child(3) {
+        display: block !important;
+      }
+
+      .video-viewer-stage {
+        width: min(94vw, 607px) !important;
+        height: auto !important;
+        max-height: 92vh !important;
+      }
+
+      .video-viewer-video {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 92vh !important;
+      }
+    }
+  </style>
+
 </head>
 <body>
-  <!-- CLAIRE SITE V19: CUSTOM VIDEO PLAYER — NO NATIVE DOWNLOAD MENU -->
+  <!-- CLAIRE SITE V21: 29 ORIGINAL CLIPS — CUSTOM PLAYER -->
   <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
@@ -813,26 +872,35 @@ window.CLAIRE_SITE = {
     "assets/images/claire-05.jpg"
   ],
   videos: [
-    { src: "assets%204/videos/showcase/claire-01.mp4", poster: "assets%204/posters/showcase/claire-01.jpg", label: "CLAIRE / 01" },
-    { src: "assets/videos/showcase/claire-02.mp4", poster: "assets/posters/showcase/claire-02.jpg", label: "CLAIRE / 02" },
-    { src: "assets/videos/showcase/claire-03.mp4", poster: "assets/posters/showcase/claire-03.jpg", label: "CLAIRE / 03" },
-    { src: "assets/videos/showcase/claire-04.mp4", poster: "assets/posters/showcase/claire-04.jpg", label: "CLAIRE / 04" },
-    { src: "assets%202/videos/showcase/claire-05.mp4", poster: "assets%202/posters/showcase/claire-05.jpg", label: "CLAIRE / 05" },
-    { src: "assets%203/videos/showcase/claire-06.mp4", poster: "assets%203/posters/showcase/claire-06.jpg", label: "CLAIRE / 06" },
-    { src: "assets%205/videos/showcase/claire-07.mp4", poster: "assets%205/posters/showcase/claire-07.jpg", label: "CLAIRE / 07" },
-    { src: "assets%204/videos/showcase/claire-08.mp4", poster: "assets%204/posters/showcase/claire-08.jpg", label: "CLAIRE / 08" },
-    { src: "assets%205/videos/showcase/claire-09.mp4", poster: "assets%205/posters/showcase/claire-09.jpg", label: "CLAIRE / 09" },
-    { src: "assets%202/videos/showcase/claire-10.mp4", poster: "assets%202/posters/showcase/claire-10.jpg", label: "CLAIRE / 10" },
-    { src: "assets%202/videos/showcase/claire-11.mp4", poster: "assets%202/posters/showcase/claire-11.jpg", label: "CLAIRE / 11" },
-    { src: "assets%203/videos/showcase/claire-12.mp4", poster: "assets%203/posters/showcase/claire-12.jpg", label: "CLAIRE / 12" },
-    { src: "assets%202/videos/showcase/claire-13.mp4", poster: "assets%202/posters/showcase/claire-13.jpg", label: "CLAIRE / 13" },
-    { src: "assets%203/videos/showcase/claire-14.mp4", poster: "assets%203/posters/showcase/claire-14.jpg", label: "CLAIRE / 14" },
-    { src: "assets%205/videos/showcase/claire-15.mp4", poster: "assets%205/posters/showcase/claire-15.jpg", label: "CLAIRE / 15" },
-    { src: "assets/videos/showcase/claire-16.mp4", poster: "assets/posters/showcase/claire-16.jpg", label: "CLAIRE / 16" },
-    { src: "assets/videos/showcase/claire-17.mp4", poster: "assets/posters/showcase/claire-17.jpg", label: "CLAIRE / 17" },
-    { src: "assets%204/videos/showcase/claire-18.mp4", poster: "assets%204/posters/showcase/claire-18.jpg", label: "CLAIRE / 18" },
-    { src: "assets%205/videos/showcase/claire-19.mp4", poster: "assets%205/posters/showcase/claire-19.jpg", label: "CLAIRE / 19" },
-    { src: "assets%203/videos/showcase/claire-20.mp4", poster: "assets%203/posters/showcase/claire-20.jpg", label: "CLAIRE / 20" }
+    { src: "claire-media-a/videos/claire-01.mp4", poster: "claire-media-a/posters/claire-01.jpg", label: "CLAIRE / 01" },
+    { src: "claire-media-a/videos/claire-02.mp4", poster: "claire-media-a/posters/claire-02.jpg", label: "CLAIRE / 02" },
+    { src: "claire-media-a/videos/claire-03.mp4", poster: "claire-media-a/posters/claire-03.jpg", label: "CLAIRE / 03" },
+    { src: "claire-media-a/videos/claire-04.mp4", poster: "claire-media-a/posters/claire-04.jpg", label: "CLAIRE / 04" },
+    { src: "claire-media-a/videos/claire-05.mp4", poster: "claire-media-a/posters/claire-05.jpg", label: "CLAIRE / 05" },
+    { src: "claire-media-a/videos/claire-06.mp4", poster: "claire-media-a/posters/claire-06.jpg", label: "CLAIRE / 06" },
+    { src: "claire-media-b/videos/claire-07.mp4", poster: "claire-media-b/posters/claire-07.jpg", label: "CLAIRE / 07" },
+    { src: "claire-media-b/videos/claire-08.mp4", poster: "claire-media-b/posters/claire-08.jpg", label: "CLAIRE / 08" },
+    { src: "claire-media-b/videos/claire-09.mp4", poster: "claire-media-b/posters/claire-09.jpg", label: "CLAIRE / 09" },
+    { src: "claire-media-b/videos/claire-10.mp4", poster: "claire-media-b/posters/claire-10.jpg", label: "CLAIRE / 10" },
+    { src: "claire-media-b/videos/claire-11.mp4", poster: "claire-media-b/posters/claire-11.jpg", label: "CLAIRE / 11" },
+    { src: "claire-media-b/videos/claire-12.mp4", poster: "claire-media-b/posters/claire-12.jpg", label: "CLAIRE / 12" },
+    { src: "claire-media-c/videos/claire-13.mp4", poster: "claire-media-c/posters/claire-13.jpg", label: "CLAIRE / 13" },
+    { src: "claire-media-c/videos/claire-14.mp4", poster: "claire-media-c/posters/claire-14.jpg", label: "CLAIRE / 14" },
+    { src: "claire-media-c/videos/claire-15.mp4", poster: "claire-media-c/posters/claire-15.jpg", label: "CLAIRE / 15" },
+    { src: "claire-media-c/videos/claire-16.mp4", poster: "claire-media-c/posters/claire-16.jpg", label: "CLAIRE / 16" },
+    { src: "claire-media-c/videos/claire-17.mp4", poster: "claire-media-c/posters/claire-17.jpg", label: "CLAIRE / 17" },
+    { src: "claire-media-c/videos/claire-18.mp4", poster: "claire-media-c/posters/claire-18.jpg", label: "CLAIRE / 18" },
+    { src: "claire-media-d/videos/claire-19.mp4", poster: "claire-media-d/posters/claire-19.jpg", label: "CLAIRE / 19" },
+    { src: "claire-media-d/videos/claire-20.mp4", poster: "claire-media-d/posters/claire-20.jpg", label: "CLAIRE / 20" },
+    { src: "claire-media-d/videos/claire-21.mp4", poster: "claire-media-d/posters/claire-21.jpg", label: "CLAIRE / 21" },
+    { src: "claire-media-d/videos/claire-22.mp4", poster: "claire-media-d/posters/claire-22.jpg", label: "CLAIRE / 22" },
+    { src: "claire-media-d/videos/claire-23.mp4", poster: "claire-media-d/posters/claire-23.jpg", label: "CLAIRE / 23" },
+    { src: "claire-media-d/videos/claire-24.mp4", poster: "claire-media-d/posters/claire-24.jpg", label: "CLAIRE / 24" },
+    { src: "claire-media-e/videos/claire-25.mp4", poster: "claire-media-e/posters/claire-25.jpg", label: "CLAIRE / 25" },
+    { src: "claire-media-e/videos/claire-26.mp4", poster: "claire-media-e/posters/claire-26.jpg", label: "CLAIRE / 26" },
+    { src: "claire-media-e/videos/claire-27.mp4", poster: "claire-media-e/posters/claire-27.jpg", label: "CLAIRE / 27" },
+    { src: "claire-media-e/videos/claire-28.mp4", poster: "claire-media-e/posters/claire-28.jpg", label: "CLAIRE / 28" },
+    { src: "claire-media-e/videos/claire-29.mp4", poster: "claire-media-e/posters/claire-29.jpg", label: "CLAIRE / 29" }
   ]
 };
 
