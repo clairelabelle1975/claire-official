@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=18" />
+  <link rel="stylesheet" href="styles.css?v=19" />
 
   <style>
     /* CLAIRE HERO V9 — full-page, centered, head + bust visible */
@@ -480,9 +480,211 @@
     }
   </style>
 
+
+  <style>
+    /* V19 — custom video controls: no native download/PiP/speed menu */
+    .video-card {
+      position: relative !important;
+    }
+
+    .video-card video {
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .video-custom-play,
+    .video-custom-sound,
+    .video-custom-expand {
+      position: absolute;
+      z-index: 8;
+      border: 1px solid rgba(255,255,255,.32);
+      background: rgba(0,0,0,.48);
+      color: #fff;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: opacity .18s ease, transform .18s ease, background .18s ease;
+    }
+
+    .video-custom-play:hover,
+    .video-custom-sound:hover,
+    .video-custom-expand:hover {
+      background: rgba(0,0,0,.68);
+      transform: scale(1.04);
+    }
+
+    .video-custom-play {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      font-size: 20px;
+    }
+
+    .video-custom-play:hover {
+      transform: translate(-50%, -50%) scale(1.04);
+    }
+
+    .video-card.is-playing .video-custom-play {
+      opacity: 0;
+    }
+
+    .video-card:hover .video-custom-play,
+    .video-card:focus-within .video-custom-play {
+      opacity: 1;
+    }
+
+    .video-custom-sound,
+    .video-custom-expand {
+      top: 12px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 15px;
+    }
+
+    .video-custom-sound {
+      left: 12px;
+    }
+
+    .video-custom-expand {
+      right: 12px;
+      font-size: 18px;
+    }
+
+    .video-label {
+      pointer-events: none;
+    }
+
+    .video-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(7,7,8,.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .video-viewer.is-open {
+      display: flex;
+    }
+
+    .video-viewer-stage {
+      position: relative;
+      height: min(92vh, 958px);
+      max-width: 92vw;
+      aspect-ratio: 540 / 958;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-viewer-video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain !important;
+      object-position: center center !important;
+      background: #000;
+      box-shadow: 0 30px 100px rgba(0,0,0,.55);
+    }
+
+    .video-viewer-close,
+    .video-viewer-play,
+    .video-viewer-sound {
+      position: absolute;
+      z-index: 3;
+      border: 1px solid rgba(255,255,255,.34);
+      background: rgba(0,0,0,.55);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .video-viewer-close {
+      top: 12px;
+      right: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 24px;
+    }
+
+    .video-viewer-sound {
+      top: 12px;
+      left: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      font-size: 16px;
+    }
+
+    .video-viewer-play {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      font-size: 22px;
+      transition: opacity .18s ease;
+    }
+
+    .video-viewer.is-playing .video-viewer-play {
+      opacity: 0;
+    }
+
+    .video-viewer-stage:hover .video-viewer-play {
+      opacity: 1;
+    }
+
+    @media (max-width: 760px) {
+      .video-custom-play {
+        width: 50px;
+        height: 50px;
+      }
+
+      .video-custom-sound,
+      .video-custom-expand {
+        width: 34px;
+        height: 34px;
+        top: 8px;
+      }
+
+      .video-custom-sound { left: 8px; }
+      .video-custom-expand { right: 8px; }
+
+      .video-viewer {
+        padding: 8px;
+      }
+
+      .video-viewer-stage {
+        height: auto;
+        width: min(96vw, 540px);
+        max-height: 96vh;
+      }
+
+      .video-viewer-video {
+        width: 100%;
+        height: auto;
+        max-height: 96vh;
+      }
+    }
+  </style>
+
 </head>
 <body>
-  <!-- CLAIRE SITE V18: 20 NEW VIDEOS MAPPED TO CURRENT GITHUB FOLDERS -->
+  <!-- CLAIRE SITE V19: CUSTOM VIDEO PLAYER — NO NATIVE DOWNLOAD MENU -->
   <div class="noise" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
@@ -701,6 +903,92 @@ window.CLAIRE_SITE = {
     galleryGrid.appendChild(card);
   });
 
+
+  // V19 custom large video viewer: preserves vertical aspect ratio and avoids native browser menus.
+  const videoViewer = document.createElement('div');
+  videoViewer.className = 'video-viewer';
+  videoViewer.setAttribute('aria-hidden', 'true');
+  videoViewer.innerHTML = `
+    <div class="video-viewer-stage">
+      <video class="video-viewer-video" playsinline preload="metadata"></video>
+      <button class="video-viewer-sound" type="button" aria-label="Toggle sound">🔇</button>
+      <button class="video-viewer-play" type="button" aria-label="Play or pause">▶</button>
+      <button class="video-viewer-close" type="button" aria-label="Close">×</button>
+    </div>
+  `;
+  document.body.appendChild(videoViewer);
+
+  const viewerVideo = videoViewer.querySelector('.video-viewer-video');
+  const viewerPlay = videoViewer.querySelector('.video-viewer-play');
+  const viewerSound = videoViewer.querySelector('.video-viewer-sound');
+  const viewerClose = videoViewer.querySelector('.video-viewer-close');
+
+  viewerVideo.controls = false;
+  viewerVideo.disablePictureInPicture = true;
+  viewerVideo.setAttribute('controlsList', 'nodownload noplaybackrate noremoteplayback');
+  viewerVideo.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  const updateViewerState = () => {
+    const playing = !viewerVideo.paused && !viewerVideo.ended;
+    videoViewer.classList.toggle('is-playing', playing);
+    viewerPlay.textContent = playing ? '❚❚' : '▶';
+    viewerSound.textContent = viewerVideo.muted ? '🔇' : '🔊';
+  };
+
+  const openVideoViewer = (video) => {
+    viewerVideo.src = video.currentSrc || video.src;
+    viewerVideo.poster = video.poster || '';
+    viewerVideo.currentTime = Number.isFinite(video.currentTime) ? video.currentTime : 0;
+    viewerVideo.muted = video.muted;
+    video.pause();
+    videoViewer.classList.add('is-open');
+    videoViewer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    viewerVideo.play().catch(() => {});
+    updateViewerState();
+  };
+
+  const closeVideoViewer = () => {
+    viewerVideo.pause();
+    videoViewer.classList.remove('is-open', 'is-playing');
+    videoViewer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    viewerVideo.removeAttribute('src');
+    viewerVideo.load();
+  };
+
+  viewerVideo.addEventListener('play', updateViewerState);
+  viewerVideo.addEventListener('pause', updateViewerState);
+  viewerVideo.addEventListener('volumechange', updateViewerState);
+  viewerVideo.addEventListener('click', () => {
+    if (viewerVideo.paused) viewerVideo.play().catch(() => {});
+    else viewerVideo.pause();
+  });
+
+  viewerPlay.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (viewerVideo.paused) viewerVideo.play().catch(() => {});
+    else viewerVideo.pause();
+  });
+
+  viewerSound.addEventListener('click', (e) => {
+    e.stopPropagation();
+    viewerVideo.muted = !viewerVideo.muted;
+  });
+
+  viewerClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeVideoViewer();
+  });
+
+  videoViewer.addEventListener('click', (e) => {
+    if (e.target === videoViewer) closeVideoViewer();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoViewer.classList.contains('is-open')) closeVideoViewer();
+  });
+
   const videoGrid = document.getElementById('videoGrid');
   const videos = Array.isArray(config.videos) ? config.videos : [];
   const videoItems = videos.length ? videos : ['', '', ''];
@@ -718,8 +1006,65 @@ window.CLAIRE_SITE = {
       video.loop = true;
       video.playsInline = true;
       video.preload = 'none';
-      video.controls = true;
+      video.controls = false;
+      video.disablePictureInPicture = true;
+      video.setAttribute('controlsList', 'nodownload noplaybackrate noremoteplayback');
+      video.addEventListener('contextmenu', (e) => e.preventDefault());
       card.appendChild(video);
+
+      const playButton = document.createElement('button');
+      playButton.type = 'button';
+      playButton.className = 'video-custom-play';
+      playButton.setAttribute('aria-label', 'Play or pause');
+      playButton.textContent = '▶';
+
+      const soundButton = document.createElement('button');
+      soundButton.type = 'button';
+      soundButton.className = 'video-custom-sound';
+      soundButton.setAttribute('aria-label', 'Toggle sound');
+      soundButton.textContent = '🔇';
+
+      const expandButton = document.createElement('button');
+      expandButton.type = 'button';
+      expandButton.className = 'video-custom-expand';
+      expandButton.setAttribute('aria-label', 'Open video');
+      expandButton.textContent = '⛶';
+
+      const updateCardState = () => {
+        const playing = !video.paused && !video.ended;
+        card.classList.toggle('is-playing', playing);
+        playButton.textContent = playing ? '❚❚' : '▶';
+        soundButton.textContent = video.muted ? '🔇' : '🔊';
+      };
+
+      video.addEventListener('play', updateCardState);
+      video.addEventListener('pause', updateCardState);
+      video.addEventListener('volumechange', updateCardState);
+
+      video.addEventListener('click', () => {
+        if (video.paused) video.play().catch(() => {});
+        else video.pause();
+      });
+
+      playButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (video.paused) video.play().catch(() => {});
+        else video.pause();
+      });
+
+      soundButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        video.muted = !video.muted;
+      });
+
+      expandButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openVideoViewer(video);
+      });
+
+      card.appendChild(playButton);
+      card.appendChild(soundButton);
+      card.appendChild(expandButton);
     } else {
       const ph = document.createElement('div');
       ph.className = 'video-placeholder';
