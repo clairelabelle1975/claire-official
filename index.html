@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 
   <style>
     /* CLAIRE HERO V9 — full-page, centered, head + bust visible */
@@ -307,6 +307,159 @@
       .nav {
         background: rgba(247,242,235,.97) !important;
         border-color: rgba(23,19,15,.12) !important;
+      }
+
+      .nav a {
+        color: var(--ink) !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* V13 — FORCE cream palette everywhere outside the hero */
+    :root {
+      --cream-bg: #f6efe5;
+      --cream-bg-2: #efe4d7;
+      --cream-line: rgba(24, 20, 16, .14);
+      --ink: #17130f;
+      --ink-soft: #6e665f;
+    }
+
+    html,
+    body,
+    main {
+      background: var(--cream-bg) !important;
+      color: var(--ink) !important;
+    }
+
+    main > section:not(.hero),
+    .section,
+    .intro,
+    #about,
+    #gallery,
+    #videos,
+    #links,
+    .links-section,
+    .footer {
+      background: var(--cream-bg) !important;
+      color: var(--ink) !important;
+    }
+
+    .site-header {
+      background: rgba(246,239,229,.96) !important;
+      border-bottom: 1px solid var(--cream-line) !important;
+      backdrop-filter: blur(14px) !important;
+      -webkit-backdrop-filter: blur(14px) !important;
+    }
+
+    .site-header .brand,
+    .site-header .nav,
+    .site-header .nav a,
+    .site-header .menu-toggle {
+      color: var(--ink) !important;
+    }
+
+    .hero {
+      background: #09090b !important;
+      color: #fff !important;
+    }
+
+    .hero *,
+    .hero .eyebrow,
+    .hero h1,
+    .hero .hero-copy,
+    .hero .scroll-cue {
+      color: #fff !important;
+    }
+
+    .hero .button-primary {
+      background: #fff !important;
+      color: #111 !important;
+    }
+
+    .hero .button-ghost {
+      color: #fff !important;
+      background: rgba(0,0,0,.24) !important;
+      border-color: rgba(255,255,255,.34) !important;
+    }
+
+    .section-kicker {
+      color: #7b5c54 !important;
+    }
+
+    .intro h2,
+    .section-heading h2,
+    .links-section h2,
+    .exclusive h2,
+    .intro-copy,
+    .intro-copy p,
+    .links-lead,
+    .section-note,
+    .social-card,
+    .social-card span,
+    .footer,
+    .footer a,
+    .footer .brand {
+      color: var(--ink) !important;
+    }
+
+    .muted,
+    .section-note,
+    .links-lead,
+    .footer-meta {
+      color: var(--ink-soft) !important;
+    }
+
+    .intro {
+      border-top: 1px solid var(--cream-line) !important;
+    }
+
+    .social-list {
+      border-top: 1px solid var(--cream-line) !important;
+    }
+
+    .social-card {
+      border-bottom: 1px solid var(--cream-line) !important;
+    }
+
+    .gallery-card,
+    .video-card {
+      background: #e9ded0 !important;
+      border-color: rgba(24,20,16,.12) !important;
+    }
+
+    .exclusive {
+      background: var(--cream-bg-2) !important;
+      color: var(--ink) !important;
+      border: 1px solid var(--cream-line) !important;
+      box-shadow: none !important;
+    }
+
+    .exclusive .eyebrow,
+    .exclusive p:not(.eyebrow) {
+      color: var(--ink-soft) !important;
+    }
+
+    .button-light {
+      background: transparent !important;
+      color: var(--ink) !important;
+      border-color: rgba(24,20,16,.35) !important;
+    }
+
+    .button-light:hover {
+      background: var(--ink) !important;
+      color: #fff !important;
+    }
+
+    .footer {
+      border-top: 1px solid var(--cream-line) !important;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        background: rgba(246,239,229,.98) !important;
+        border-color: var(--cream-line) !important;
       }
 
       .nav a {
